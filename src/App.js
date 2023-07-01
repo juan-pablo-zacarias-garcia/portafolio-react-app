@@ -1,24 +1,40 @@
 import logo from './logo.svg';
 import './App.css';
+import HelloWorld from './components/HelloWorld';
+import SecondPage from './components/SecondPage';
+import RefComponent from './components/RefComponent';
+import ControllerComponent from './components/ControllerComponent';
+import CounterComponent from './components/CounterComponent';
+import TodoList from './components/TodoList';
+
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <main className="w-screen h-screen bg-slate-400 flex flex-col items-center justify-center">
+        <img src={logo} className="w-96" alt="logo" />
+        <h1 className="text-4xl font-bold">Desarrollo web con React - IECA</h1>
+        <div className="flex gap-4">
+          <Link to="/hola-mundo" className=''>Hola mundo</Link>
+          <Link to="/otra-ruta" className=''>Otra ruta</Link>
+          <Link to="/ref" className=''>Hook ref</Link>
+          <Link to="/controller-component" className=''>Componente controlado</Link>
+          <Link to="/contador" className=''>Hook personalizado</Link>
+          <Link to="/todo" className="font-bold text-2xl text-blue-700">
+            Lista Todo
+          </Link>
+        </div>
+        <Routes>
+          <Route path="/hola-mundo" exact element={<HelloWorld />} />
+          <Route path="/otra-ruta" exact element={<SecondPage />} />
+          <Route path="/ref" exact element={<RefComponent />} />
+          <Route path="/controller-component" exact element={<ControllerComponent />} />
+          <Route path="/contador" exact element={<CounterComponent />} />
+          <Route path="/todo" exact element={<TodoList />} />
+        </Routes>
+      </main>
+    </BrowserRouter>
   );
 }
 
