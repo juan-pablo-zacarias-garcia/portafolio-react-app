@@ -6,6 +6,8 @@ import RefComponent from './components/RefComponent';
 import ControllerComponent from './components/ControllerComponent';
 import CounterComponent from './components/CounterComponent';
 import TodoList from './components/TodoList';
+import ReducerComponent from './components/ReducerComponent';
+import ProductsComponent from './components/ProductsComponent';
 
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
@@ -24,6 +26,12 @@ function App() {
           <Link to="/todo" className="font-bold text-2xl text-blue-700">
             Lista Todo
           </Link>
+          <Link to="/reducer" className="font-bold text-2xl text-blue-700">
+            HookReducer
+          </Link>
+          <Link to="/productos" className="font-bold text-2xl text-blue-700">
+            Products Component
+          </Link>
         </div>
         <Routes>
           <Route path="/hola-mundo" exact element={<HelloWorld />} />
@@ -32,6 +40,8 @@ function App() {
           <Route path="/controller-component" exact element={<ControllerComponent />} />
           <Route path="/contador" exact element={<CounterComponent />} />
           <Route path="/todo" exact element={<TodoList />} />
+          <Route path="/reducer" exact element={<ReducerComponent />} />
+          <Route path="/productos" exact element={<ProductsComponent/>} />
         </Routes>
       </main>
     </BrowserRouter>
